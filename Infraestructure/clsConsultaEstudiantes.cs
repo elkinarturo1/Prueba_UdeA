@@ -19,7 +19,10 @@ namespace Infraestructure
             conexionDB = p_conexionDB;
         }
 
-
+        /// <summary>
+        /// Ejecuta la consulta a base de datos
+        /// </summary>
+        /// <returns></returns>
         public DataSet ejecutar_Consulta()
         {
             SqlConnection sqlConexion = new SqlConnection(conexionDB.strConexion);

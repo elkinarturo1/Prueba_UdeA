@@ -21,6 +21,10 @@ namespace Dominio
             ds = p_dsDatos;
         }
 
+        /// <summary>
+        /// Rutina para generar el archivo con los datos de la consulta
+        /// </summary>
+        /// <returns></returns>
         public DataSet generarReporte()
         {
             try
@@ -39,12 +43,14 @@ namespace Dominio
         }
 
 
+        /// <summary>
+        /// Abre un cuadro de dialogo para permitir guardar un archivo
+        /// </summary>
         public void definirRutaArchivo()
         {
             try
             {
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.DefaultExt = "xlsx";
+                SaveFileDialog saveFileDialog = new SaveFileDialog();             
                 saveFileDialog.AddExtension = true;
                 saveFileDialog.ShowDialog();
                 directorio = saveFileDialog.FileName.ToString();
@@ -56,6 +62,9 @@ namespace Dominio
         }
 
 
+        /// <summary>
+        /// Genera un archivo de excel partiendo de un DataSet
+        /// </summary>
         private void generarExcel()
         {
             try

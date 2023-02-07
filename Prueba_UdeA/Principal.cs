@@ -19,7 +19,7 @@ namespace Prueba_UdeA
 
         ConexionDB_Model conexionDB_Model;
         IGenerarReporte generarReporte;
-        public DataSet ds;       
+        public DataSet ds;
 
         public Principal()
         {
@@ -62,7 +62,9 @@ namespace Prueba_UdeA
 
 
 
-     
+        /// <summary>
+        /// Realiza la consulta a base da datos
+        /// </summary>
         private void realizarConsulta()
         {
             try
@@ -81,10 +83,13 @@ namespace Prueba_UdeA
             }
         }
 
+        /// <summary>
+        /// Genera un archivo de Excel
+        /// </summary>
         private void generarExcel()
         {
             try
-            {     
+            {
                 generarReporte = new clsGenerarReporteExcel(ds);
                 generarReporte.generarReporte();
                 resultado("Proceso Terminado");
@@ -93,7 +98,7 @@ namespace Prueba_UdeA
             {
                 resultado(ex.Message);
             }
-          
+
         }
 
         //public void definirRutaArchivo()
@@ -110,6 +115,10 @@ namespace Prueba_UdeA
         //    }
         //}
 
+        /// <summary>
+        /// Muestra en pantalla el resultado de cada proceso
+        /// </summary>
+        /// <param name="mensaje"></param>
         public void resultado(string mensaje)
         {
             txtResultado.Text = mensaje;
