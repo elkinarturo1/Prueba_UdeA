@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Prueba_UdeA.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="strConexion" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=107.6.54.20,1433;Initial Catalog=udeaDB;User ID=udea;Password=udea;Integrated Security=False</Value>
+    </Setting>
+    <Setting Name="sp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sp_Consulta</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
