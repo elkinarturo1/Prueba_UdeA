@@ -30,13 +30,15 @@
         {
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnGenerarXLS = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtResultado = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnGenerarXLS = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDatos
@@ -65,44 +67,6 @@
             this.panel1.Size = new System.Drawing.Size(857, 89);
             this.panel1.TabIndex = 1;
             // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(22, 7);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultar.TabIndex = 0;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(22, 54);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 1;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnGenerarXLS
-            // 
-            this.btnGenerarXLS.Location = new System.Drawing.Point(142, 17);
-            this.btnGenerarXLS.Name = "btnGenerarXLS";
-            this.btnGenerarXLS.Size = new System.Drawing.Size(112, 49);
-            this.btnGenerarXLS.TabIndex = 2;
-            this.btnGenerarXLS.Text = "Generar XLS";
-            this.btnGenerarXLS.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(286, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Resultado:";
-            // 
             // txtResultado
             // 
             this.txtResultado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -114,6 +78,50 @@
             this.txtResultado.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtResultado.Size = new System.Drawing.Size(504, 79);
             this.txtResultado.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(286, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Resultado:";
+            // 
+            // btnGenerarXLS
+            // 
+            this.btnGenerarXLS.Location = new System.Drawing.Point(142, 17);
+            this.btnGenerarXLS.Name = "btnGenerarXLS";
+            this.btnGenerarXLS.Size = new System.Drawing.Size(112, 49);
+            this.btnGenerarXLS.TabIndex = 2;
+            this.btnGenerarXLS.Text = "Generar XLS";
+            this.btnGenerarXLS.UseVisualStyleBackColor = true;
+            this.btnGenerarXLS.Click += new System.EventHandler(this.btnGenerarXLS_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(22, 54);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 1;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(22, 7);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.TabIndex = 0;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
             // Principal
             // 
@@ -127,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -140,5 +149,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnGenerarXLS;
         private System.Windows.Forms.TextBox txtResultado;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }

@@ -10,6 +10,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Prueba_UdeA
 {
@@ -18,7 +19,7 @@ namespace Prueba_UdeA
 
         ConexionDB_Model conexionDB_Model;
         IGenerarReporte generarReporte;
-        public DataSet ds;
+        public DataSet ds;       
 
         public Principal()
         {
@@ -31,8 +32,6 @@ namespace Prueba_UdeA
                 conexionDB_Model = new ConexionDB_Model();
                 conexionDB_Model.strConexion = Properties.Settings.Default.strConexion;
                 conexionDB_Model.sp = Properties.Settings.Default.sp;
-
-                generarReporte = new clsGenerarReporteEstudiantes(conexionDB_Model);
             }
             catch (Exception ex)
             {
@@ -43,9 +42,33 @@ namespace Prueba_UdeA
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            realizarConsulta();
+        }
 
+
+        private void btnGenerarXLS_Click(object sender, EventArgs e)
+        {
+            realizarConsulta();
+            generarExcel();
+        }
+
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvDatos.DataSource = null;
+            resultado("");
+        }
+
+
+
+
+     
+        private void realizarConsulta()
+        {
             try
             {
+                generarReporte = new clsGenerarReporteEstudiantes(conexionDB_Model);
+
                 ds = generarReporte.generarReporte();
 
                 dgvDatos.DataSource = ds;
@@ -58,16 +81,39 @@ namespace Prueba_UdeA
             }
         }
 
+        private void generarExcel()
+        {
+            try
+            {     
+                generarReporte = new clsGenerarReporteExcel(ds);
+                generarReporte.generarReporte();
+                resultado("Proceso Terminado");
+            }
+            catch (Exception ex)
+            {
+                resultado(ex.Message);
+            }
+          
+        }
+
+        //public void definirRutaArchivo()
+        //{
+        //    try
+        //    {
+        //        OpenFileDialog openFileDialog = new OpenFileDialog();
+        //        openFileDialog.ShowDialog();
+        //        rutaArchivo = openFileDialog.FileName.ToString();               
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        resultado(ex.Message);
+        //    }
+        //}
 
         public void resultado(string mensaje)
         {
             txtResultado.Text = mensaje;
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            dgvDatos.DataSource = null;
-            resultado("");
-        }
     }
 }
